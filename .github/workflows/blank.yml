@@ -36,6 +36,8 @@ jobs:
           echo test, and deploy your project.
           echo "GAR_REPO=name" >> $GITHUB_ENV
           echo "IMAGE_TAG=tag" >> $GITHUB_ENV
+      - name: print var
+        run: |
           echo $GAR_REPO
           echo $IMAGE_TAG
           
