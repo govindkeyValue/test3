@@ -17,6 +17,7 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    name: stepone
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -36,10 +37,25 @@ jobs:
           echo test, and deploy your project.
           echo "GAR_REPO=name" >> $GITHUB_ENV
           echo "IMAGE_TAG=tag" >> $GITHUB_ENV
-          echo "name=value" >> $GITHUB_OUTPUT
+          echo "NAME=value" >> $GITHUB_OUTPUT
       - name: print var
         run: |
           echo $GAR_REPO
           echo $IMAGE_TAG
           echo $name
+  docker-compose-up-web:
+    needs:
+       - build
+    name: Docker Compose Up
+    runs-on: ubuntu-latest
+    env:
+      GAR_REPO: ${{ needs.build.NAME }}
+    steps:
+     - name : env
+       run: |
+         echo $GAR_REPO
+         echo ${{ needs.build.NAME }}
+       
+      
+      
           
