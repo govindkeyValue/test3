@@ -53,8 +53,8 @@ jobs:
     steps:
      - name : env
        run: |
-         echo $GAR_REPO
-         echo ${{ needs.build.NAME }}
+         echo ${{ env.GAR_REPO }}
+         echo ${{ needs.build.outputs.NAME }}
        
       
       
