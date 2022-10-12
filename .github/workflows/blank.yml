@@ -49,7 +49,7 @@ jobs:
     name: Docker Compose Up
     runs-on: ubuntu-latest
     env:
-      GAR_REPO: ${{ needs.build.NAME }}
+      GAR_REPO: ${{ needs.build.outputs.NAME }}
     steps:
      - name : env
        run: |
