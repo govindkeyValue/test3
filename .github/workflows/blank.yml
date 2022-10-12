@@ -34,4 +34,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+          echo "GAR_REPO=name" >> $GITHUB_ENV
+          echo "IMAGE_TAG=tag" >> $GITHUB_ENV
+          echo $GAR_REPO
+          echo $IMAGE_TAG
           
