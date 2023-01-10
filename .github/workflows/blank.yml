@@ -33,31 +33,31 @@ jobs:
         run: echo Hello, world!
 
       # Runs a set of commands using the runners shell
-      - id: build
-        name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
-          echo "GAR_REPO=name" >> $GITHUB_ENV
-          echo "IMAGE_TAG=tag" >> $GITHUB_ENV
-          echo "NAME=value" >> $GITHUB_OUTPUT
-      - name: print var
-        run: |
-          echo $GAR_REPO
-          echo $IMAGE_TAG
-          echo $name
-  docker-compose-up-web:
-    needs:
-       - build
-    name: Docker Compose Up
-    runs-on: ubuntu-latest
-    env:
-      GAR_REPO: ${{ needs.build.outputs.NAME }}
-    steps:
-     - name : env
-       run: |
-         echo ${{ env.GAR_REPO }}
-         echo ${{ needs.build.outputs.NAME }}
+#       - id: build
+#         name: Run a multi-line script
+#         run: |
+#           echo Add other actions to build,
+#           echo test, and deploy your project.
+#           echo "GAR_REPO=name" >> $GITHUB_ENV
+#           echo "IMAGE_TAG=tag" >> $GITHUB_ENV
+#           echo "NAME=value" >> $GITHUB_OUTPUT
+#       - name: print var
+#         run: |
+#           echo $GAR_REPO
+#           echo $IMAGE_TAG
+#           echo $name
+#   docker-compose-up-web:
+#     needs:
+#        - build
+#     name: Docker Compose Up
+#     runs-on: ubuntu-latest
+#     env:
+#       GAR_REPO: ${{ needs.build.outputs.NAME }}
+#     steps:
+#      - name : env
+#        run: |
+#          echo ${{ env.GAR_REPO }}
+#          echo ${{ needs.build.outputs.NAME }}
        
       
       
